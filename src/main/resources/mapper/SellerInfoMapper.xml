@@ -1,0 +1,15 @@
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hujing.ssm.dao.SellerInfoMapper">
+
+	<select id="findAll" resultType="com.hujing.ssm.entity.SellerInfo">
+		select * from seller_info 
+	</select>
+	<select id="findOne" parameterType="string" resultType="com.hujing.ssm.entity.SellerInfo">
+	    select * from seller_info where seller_id=#{sellerId}
+	</select>
+	<insert id="insert" parameterType="com.hujing.ssm.entity.SellerInfo">
+		insert into seller_info (seller_id,username,password,openid,create_time,update_time) values (#{sellerId},#{username},#{password},#{openid},#{createTime},#{updateTime})
+	</insert>
+</mapper>
